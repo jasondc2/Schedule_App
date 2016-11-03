@@ -4,6 +4,9 @@ package com.example.jason.schedule_app.test;
 import android.test.InstrumentationTestCase;
 
 import com.example.jason.schedule_app.AssignmentQueue;
+import com.example.jason.schedule_app.DueDate;
+
+import java.util.Calendar;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -27,6 +30,7 @@ public class AQTest  extends InstrumentationTestCase {
        newDate= aqtest.getDate();
         assertEquals(expected, newDate);
     }
+
 
 
 
