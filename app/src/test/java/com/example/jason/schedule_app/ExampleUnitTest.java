@@ -14,4 +14,15 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(6, 4 + 2);
     }
+
+    /*
+    @Test
+    public void checkPointType() throws Exception {
+        assert(getPointValue(7, 9));
+    }
+
+    @Test
+    public void checkViewType() throws Exception {
+        assert(viewType(true));
+    }*/
 }
