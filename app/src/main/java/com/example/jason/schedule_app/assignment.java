@@ -12,7 +12,7 @@ public class assignment {
         return pointValue;
     }
 
-    public boolean getViewType() {
+    public boolean viewType() {
         return isList;
     }
 }
