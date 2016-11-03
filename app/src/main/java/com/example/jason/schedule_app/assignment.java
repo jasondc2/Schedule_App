@@ -5,14 +5,21 @@ package com.example.jason.schedule_app;
  */
 
 public class assignment {
-    private float pointValue;
+    private double pointValue;
     private boolean isList;
 
-    public float getPointValue() {
+    public double getPointValue(int valueOne, int valueTwo) {
+        int one = valueOne;
+        int two = valueTwo;
+
+        pointValue = (one * 0.3) + (two * 0.2);
+
         return pointValue;
     }
 
-    public boolean viewType() {
+    public boolean viewType(boolean list) {
+        isList = list;
+
         return isList;
     }
 }
