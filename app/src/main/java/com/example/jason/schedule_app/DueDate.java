@@ -20,11 +20,18 @@ public class DueDate {
     }
 
     public void setDate(int year, int month, int day, int hour, int minute, int AM_PM) {
-
+        if (AM_PM == Calendar.PM) {
+            dueDate.set(year, month, day, hour + 12, minute);
+            return;
+        }
+        dueDate.set(year, month, day, hour, minute);
+        return;
     }
 
-    public void getDueDate() {
-        //return date
+    public Calendar getDueDate() {
+        if(dueDate.get(Calendar.HOUR_OF_DAY) > 12){
+            return;
+        }
     }
 
     public int compareCurrentDate() {
