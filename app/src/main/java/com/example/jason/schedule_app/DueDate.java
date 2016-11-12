@@ -23,16 +23,18 @@ public class DueDate {
 
     }
 
-    public Calendar getDueDate() {
+    public void getDueDate() {
         //return date
     }
 
     public int compareCurrentDate() {
         //compare with current date
+        return 0;
     }
 
     public int compareDate(DueDate date) {
         //compare with another date
+        return 0;
     }
 }
 
