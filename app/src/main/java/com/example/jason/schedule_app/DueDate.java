@@ -28,9 +28,9 @@ public class DueDate {
         return;
     }
 
-    public Calendar getDueDate() {
+    public void getDueDate() {
         if(dueDate.get(Calendar.HOUR_OF_DAY) > 12){
-            return;
+            return ;
         }
     }
 
