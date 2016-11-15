@@ -32,7 +32,7 @@ public class AssignmentQueue {
 
 
    public String getDate(){
-       //log tag 2
+       //log tag 2 add
         Log.d(TAG, "getDate to return date");
        return date;}
 
