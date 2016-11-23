@@ -1,5 +1,9 @@
 package com.example.jason.schedule_app;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ListView;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -9,14 +13,21 @@ import java.util.Queue;
 
 
 
-public class assignment {
+public class assignment extends AppCompatActivity {
     private double pointValue;
     private boolean isList;
 
+
     private static final String TAG = assignment.class.getSimpleName();
 
-    //constructor
-    public assignment (double pointValue, boolean isList) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_assignment);}
+
+
+        //constructor
+    void assignmentVar(double pointValue, boolean isList) {
         //log tag 1
         Log.d(TAG, "Assignment Constructor");
 
@@ -45,8 +56,7 @@ public class assignment {
 
     //tiffany add
     //this puts the assignment information into the Queue
-    void CreateQueue ()
-    {
+    void CreateQueue() {
 
         Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
@@ -58,7 +68,6 @@ public class assignment {
 
         //error log
         Log.v(TAG, "Error passing value");
-
 
 
     }

@@ -12,7 +12,7 @@
         android:text="+Assignment"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:id="@+id/assignment" />
+        android:id="@+id/addAssignment" />
 
     <Button
         android:text="List View ->"

@@ -16,15 +16,28 @@ public class MainActivity extends AppCompatActivity {
         // Get the view from activity_main.xml
 
         // Locate the button in activity_main.xml
-        button = (Button) findViewById(R.id.buttonlist);
+        Button listView = (Button) findViewById(R.id.buttonlist);
+        //The +assignment button takes the user to the right screen - Jason
+        Button addAssignment = (Button) findViewById(R.id.addAssignment);
 
         // Capture button clicks
-        button.setOnClickListener(new View.OnClickListener() {
+        listView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
-                Intent myIntent = new Intent(MainActivity.this,listActivity.class);
+                Intent myIntent = new Intent(MainActivity.this, listActivity.class);
                 startActivity(myIntent);
+
+            }
+        });
+
+        // Capture button clicks
+        addAssignment.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent nextScreen = new Intent(getApplicationContext(), assignment.class);
+                startActivity(nextScreen);
 
             }
         });
