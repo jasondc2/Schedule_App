@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
-                Intent nextScreen = new Intent(getApplicationContext(), assignment.class);
+                Intent nextScreen = new Intent(MainActivity.this, assignment.class);
                 startActivity(nextScreen);
 
             }

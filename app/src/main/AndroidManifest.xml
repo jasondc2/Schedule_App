@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".listActivity"></activity>
+        <activity android:name=".assignment"></activity>
     </application>
 
 </manifest>
