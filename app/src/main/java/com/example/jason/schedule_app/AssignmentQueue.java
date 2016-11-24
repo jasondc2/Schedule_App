@@ -5,52 +5,81 @@ import android.util.Log;
 /**
  * Created by whi08_000 on 11/2/2016.
  */
+//how to save the queue when program closes?
 
-public class AssignmentQueue {
+public class AssignmentQueue implements Comparable<AssignmentQueue> {
     private static final String TAG = AssignmentQueue.class.getSimpleName();
-   private
-    String date;
-    double time;
-    String assignmentName;
-    String assignmentType;
+
+   private String date;
+    private int time;
+    private String assignmentName;
+    private  String assignmentType;
 
     //constructor
-    public AssignmentQueue(String date, double time, String assignmentName, String assignmentType)
-    {
-
-           //log tag 1
-            Log.d(TAG, "AssignmentQueue Constructor");
-
-
-       this.date = date;
+    public AssignmentQueue(String assignmentType,String assignmentName, String date, int time) {
+        this.date = date;
         this.time = time;
         this.assignmentName=assignmentName;
         this.assignmentType=assignmentType;
-    };
+    }
 
 
 
 
-   public String getDate(){
-       //log tag 2 add
-        Log.d(TAG, "getDate to return date");
-       return date;}
+    public String getAssignmentName() {
+        return assignmentName;
+    }
 
-    public  double getTime() {return time; }
+    public String getAssignmentType() {
+        return assignmentType;
+    }
 
-    public  String getName(){return assignmentName; }
+    public String getDate() {
+        return date;
+    }
 
-    public   String getType(){return assignmentType;}
+    public int getTime() {
+        return time;
+    }
 
-  //  AssignmentQueue compareTo(AssignmentQueue i){return i; }
 
-    //@Override
-    public double compareTo(AssignmentQueue i) {
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AssignmentQueue other = (AssignmentQueue) obj;
+        if ((this.date == null) ? (other.date != null) : !this.date.equals(other.date)) {
+            return false;
+        }
+        if ((this.assignmentName == null) ? (other.assignmentName != null) : !this.assignmentName.equals(other.assignmentName)) {
+            return false;
+        }
+        if ((this.assignmentType == null) ? (other.assignmentType != null) : !this.assignmentType.equals(other.assignmentType)) {
+            return false;
+        }
+        if (this.time != other.time) {
+            return false;
+        }
+        return true;
+    }
 
-        if (this.date== i.date) {
-            //error log
-            Log.v(TAG, "date==" + i.date);
-            return this.assignmentName.compareTo(i.assignmentName);
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + (this.date != null ? this.date.hashCode() : 0);
+        hash = 97 * hash + this.time;
+        return hash;
+    }
+
+    @Override
+    public int compareTo(AssignmentQueue i) {
+        if ((this.time == i.time) ){
+            return this.date.compareTo(i.date) ;
+            // return (this.assignmentName.compareTo(i.assignmentName));
         }
 
         return this.time - i.time;
@@ -58,8 +87,9 @@ public class AssignmentQueue {
 
     @Override
     public String toString() {
-        return String.format("%s: $%d", date, time);
+        return String.format("%s: %s: %s: $%d", assignmentName,assignmentType,date,time);
     }
+
 
 
 
