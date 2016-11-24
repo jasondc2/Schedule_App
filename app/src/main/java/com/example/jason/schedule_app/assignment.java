@@ -64,7 +64,7 @@ public class assignment extends AppCompatActivity {
         //if assignemnt then add to queue
 
         //dummy item to add
-        items.add(new AssignmentQueue("Novermber 15, 2016", 900, "Essay", "Ponder"));
+        items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
 
         //error log
         Log.v(TAG, "Error passing value");

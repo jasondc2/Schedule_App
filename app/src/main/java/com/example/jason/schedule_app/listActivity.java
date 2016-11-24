@@ -23,21 +23,21 @@ public class listActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        TextView mTextView = (TextView) findViewById(R.id.textview1);
+       // TextView mTextView = (TextView) findViewById(R.id.textview1);
 
         Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
         //dummy item to add
-      items.add(new AssignmentQueue("Novermber 15, 2016", 900, "Essay", "Ponder"));
+      items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
 
 
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_list_view, mobileArray);
+     ArrayAdapter adapter = new ArrayAdapter<String>(this,
+           R.layout.activity_list_view, mobileArray);
 
-        ListView listView = (ListView) findViewById(R.id.mobile_list);
-        listView.setAdapter(adapter);
+     ListView listView = (ListView) findViewById(R.id.mobile_list);
+     listView.setAdapter(adapter);
        
-        mTextView.setText((CharSequence) items);
+      // mTextView.setText(mobileArray);
     }
 }
