@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -25,22 +26,23 @@ public class listActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-      //  TextView mTextView = (TextView) findViewById(R.id.textview1);
-
-        Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
+          Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
         //dummy item to add
-      items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-        items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 700));
-        items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 100));
+     // items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
+     //   items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 700));
+     //  items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 100));
 
+      //  ArrayList list = new ArrayList(items);
+
+        assignment create = new assignment();
+        items=create.CreateQueue();
         ArrayList list = new ArrayList(items);
-
     ArrayAdapter adapter = new ArrayAdapter<String>(this,
         R.layout.activity_list_view,list);
 
     ListView listView = (ListView) findViewById(R.id.mobile_list);
     listView.setAdapter(adapter);
-      //  mTextView.setText("test here");
+
     }
 }

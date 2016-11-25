@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 /**
@@ -56,7 +57,7 @@ public class assignment extends AppCompatActivity {
 
     //tiffany add
     //this puts the assignment information into the Queue
-    void CreateQueue() {
+    Queue<AssignmentQueue> CreateQueue() {
 
         Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
@@ -68,7 +69,8 @@ public class assignment extends AppCompatActivity {
 
         //error log
         Log.v(TAG, "Error passing value");
-
+        ArrayList list = new ArrayList(items);
+        return items;
 
     }
 }
