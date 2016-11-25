@@ -3,7 +3,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
@@ -17,6 +19,7 @@ import java.util.Queue;
 public class assignment extends AppCompatActivity {
     private double pointValue;
     private boolean isList;
+    Button button;
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -24,7 +27,20 @@ public class assignment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_assignment);}
+        setContentView(R.layout.add_assignment);
+
+        Button cancel_action = (Button) findViewById(R.id.cancel_action);
+
+        cancel_action.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(assignment.this, MainActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+    }
 
 
         //constructor
