@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Button;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -19,7 +20,11 @@ import java.util.Queue;
 public class assignment extends AppCompatActivity {
     private double pointValue;
     private boolean isList;
-    Button button;
+    private int pointsWorth;
+    private String assignName;
+    private String assignType;
+    private String className;
+
 
 
     private static final String TAG = assignment.class.getSimpleName();

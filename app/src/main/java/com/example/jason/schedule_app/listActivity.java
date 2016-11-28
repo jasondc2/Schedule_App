@@ -1,9 +1,12 @@
 package com.example.jason.schedule_app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +30,19 @@ public class listActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
           Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
+
+        Button addAssignment = (Button) findViewById(R.id.assignment);
+
+        // Capture button clicks
+        addAssignment.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent nextScreen = new Intent(listActivity.this, assignment.class);
+                startActivity(nextScreen);
+
+            }
+        });
 
         //dummy item to add
      // items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
