@@ -68,12 +68,12 @@ public class AssignmentQueue implements Comparable<AssignmentQueue> {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + (this.date != null ? this.date.hashCode() : 0);
-        hash = 97 * hash + this.time;
-        return hash;
-    }
+        public int hashCode() {
+            int hash = 5;
+            hash = 97 * hash + (this.date != null ? this.date.hashCode() : 0);
+            hash = 97 * hash + this.time;
+            return hash;
+        }
 
     @Override
     public int compareTo(AssignmentQueue i) {

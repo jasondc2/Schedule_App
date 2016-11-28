@@ -72,6 +72,7 @@ public class assignment extends AppCompatActivity {
 
 
         //constructor
+    //FYI this isn't a constructor. It's just a function. Do you need a constructor? Java will create one when you're lacking one. -Tiffany
     void assignmentVar(double pointValue, boolean isList) {
         //log tag 1
         Log.d(TAG, "Assignment Constructor");
