@@ -87,7 +87,7 @@ public class AssignmentQueue implements Comparable<AssignmentQueue> {
 
     @Override
     public String toString() {
-        return String.format("%s: %s: %s: $%d", assignmentName,assignmentType,date,time);
+        return String.format("%s: %s: %s: %d", assignmentName,assignmentType,date,time);
     }
 
 
