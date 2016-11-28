@@ -74,14 +74,14 @@
             android:layout_below="@+id/editText12"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/editText13" />
+            android:id="@+id/pointsString" />
 
         <EditText
             android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:inputType="time"
             android:ems="10"
-            android:layout_below="@+id/editText13"
+            android:layout_below="@+id/pointsString"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/editText14" />
@@ -127,10 +127,10 @@
             android:id="@+id/textView6"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="20sp"
-            android:layout_alignBaseline="@+id/editText13"
-            android:layout_alignBottom="@+id/editText13"
-            android:layout_toLeftOf="@+id/editText13"
-            android:layout_toStartOf="@+id/editText13" />
+            android:layout_alignBaseline="@+id/pointsString"
+            android:layout_alignBottom="@+id/pointsString"
+            android:layout_toLeftOf="@+id/pointsString"
+            android:layout_toStartOf="@+id/pointsString" />
 
         <TextView
             android:text="Due Date"

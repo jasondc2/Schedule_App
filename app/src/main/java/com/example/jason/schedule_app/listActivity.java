@@ -50,7 +50,6 @@ public class listActivity extends AppCompatActivity {
      //  items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 100));
 
       //  ArrayList list = new ArrayList(items);
-
         assignment create = new assignment();
         items=create.CreateQueue();
         ArrayList list = new ArrayList(items);
