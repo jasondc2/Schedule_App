@@ -32,6 +32,7 @@ public class listActivity extends AppCompatActivity {
           Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
         Button addAssignment = (Button) findViewById(R.id.assignment);
+        Button viewCalendar = (Button) findViewById(R.id.buttonCalendar);
 
         // Capture button clicks
         addAssignment.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +40,17 @@ public class listActivity extends AppCompatActivity {
 
                 // Start NewActivity.class
                 Intent nextScreen = new Intent(listActivity.this, assignment.class);
+                startActivity(nextScreen);
+
+            }
+        });
+
+        // Capture button clicks
+        viewCalendar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent nextScreen = new Intent(listActivity.this, MainActivity.class);
                 startActivity(nextScreen);
 
             }

@@ -14,10 +14,10 @@
         android:id="@+id/assignment" />
 
     <Button
-        android:text="List View ->"
-        android:layout_width="130dp"
+        android:text="Calendar View ->"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttoncalendar" />
+        android:id="@+id/buttonCalendar" />
 
     <ListView
         android:id="@+id/mobile_list"
