@@ -20,16 +20,23 @@ import java.util.Queue;
 
 
 public class assignment extends AppCompatActivity {
+    //needs edits
     EditText pointUser;
+    EditText className;
+    EditText assignmentType;
+    EditText assignmentName;
+    EditText dueDate;
+    EditText estTime;
+    //
+
     double pointValue;
     boolean isList;
     String pointsWorth;
-    String assignName;
-    String assignType;
-    String className;
+    String assignNames;
+    String assignTypes;
+    String classNames;
     int points;
     String date;
-
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -39,9 +46,14 @@ public class assignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
 
+        //needs edits
         pointUser = (EditText) findViewById(R.id.pointsString);
-        pointsWorth = pointUser.getText().toString();
-        //points = Integer.parseInt(pointsWorth);
+        className = (EditText) findViewById(R.id.className);
+        assignmentType = (EditText) findViewById(R.id.assignType);
+        assignmentName = (EditText) findViewById(R.id.assignName);
+        dueDate = (EditText) findViewById(R.id.dueDate);
+        estTime = (EditText) findViewById(R.id.estTime);
+        //
 
         Button cancel_action = (Button) findViewById(R.id.cancel_action);
         Button submit = (Button) findViewById(R.id.submit);
@@ -58,13 +70,16 @@ public class assignment extends AppCompatActivity {
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                pointUser = (EditText) findViewById(R.id.pointsString);
-                pointsWorth = pointUser.getText().toString();
-                //points = Integer.parseInt(pointsWorth);
 
-                CreateQueue();
-
-                Intent myIntent = new Intent(assignment.this, listActivity.class);
+                Intent myIntent = new Intent(getApplicationContext(), listActivity.class);
+                //needs edits
+                myIntent.putExtra("points", pointUser.getText().toString());
+                myIntent.putExtra("className", className.getText().toString());
+                myIntent.putExtra("assignmentType", assignmentType.getText().toString());
+                myIntent.putExtra("assignName", assignmentName.getText().toString());
+                myIntent.putExtra("dueDate", dueDate.getText().toString());
+                myIntent.putExtra("estTime", estTime.getText().toString());
+                //
                 startActivity(myIntent);
             }
         });
@@ -74,13 +89,11 @@ public class assignment extends AppCompatActivity {
     //constructor
     assignment () {
 
-        assignName= "Assignment Name";
-        assignType= "Assignment Type";
-        points= 0;
+        assignNames= "Assignment Name";
+        assignTypes= "Assignment Type";
+        points= 1;
         date = "Assignment Date";
     }
-
-
 
     //constructor
     //FYI this isn't a constructor. It's just a function. Do you need a constructor? Java will create one when you're lacking one. -Tiffany
@@ -93,7 +106,6 @@ public class assignment extends AppCompatActivity {
         this.isList = isList;
     }
 
-//
     public double getPointValue(int valueOne, int valueTwo) {
         int one = valueOne;
         int two = valueTwo;
@@ -118,9 +130,8 @@ public class assignment extends AppCompatActivity {
 
     //tiffany add
     //this puts the assignment information into the Queue
-    Queue<AssignmentQueue> CreateQueue() {
+    Queue<AssignmentQueue> CreateQueue(String dueDate, String assignName, String assignType) {
 
-        //int points = Integer.parseInt(pointsWorth);
 
         Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
@@ -131,12 +142,20 @@ public class assignment extends AppCompatActivity {
         //need if else statement saying if variables !=0 then add else return "No Assignments"
         //check if null
 
+        //needs edits
+        date = dueDate;
+        assignNames = assignName;
+        assignTypes = assignType;
+        //
+
+
         if (points==1) {
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 200));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 700));
-            items.add(new AssignmentQueue(date, assignName, assignType, points));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 200));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 700));
+            //needs edits
+            items.add(new AssignmentQueue(date, assignNames, assignTypes, 500));
         }
         else
         {items.add(new AssignmentQueue("","No Assignments Here", "", 0));}

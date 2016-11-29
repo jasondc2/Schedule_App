@@ -29,7 +29,17 @@ public class listActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-          Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
+        //needs edits
+        Intent i = getIntent();
+        String Class = i.getStringExtra("className");
+        String assignType = i.getStringExtra("assignmentType");
+        String assignmentName = i.getStringExtra("assignName");
+        String points = i.getStringExtra("points");
+        String dueDate = i.getStringExtra("dueDate");
+        String estTime = i.getStringExtra("estTime");
+        //
+
+        Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
 
         Button addAssignment = (Button) findViewById(R.id.assignment);
         Button viewCalendar = (Button) findViewById(R.id.buttonCalendar);
@@ -63,9 +73,10 @@ public class listActivity extends AppCompatActivity {
 
       //  ArrayList list = new ArrayList(items);
         assignment create = new assignment();
-        items=create.CreateQueue();
+        //needs edits
+        items = create.CreateQueue(dueDate, assignmentName, assignType);
         ArrayList list = new ArrayList(items);
-    ArrayAdapter adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,
         R.layout.activity_list_view,list);
 
     ListView listView = (ListView) findViewById(R.id.mobile_list);
