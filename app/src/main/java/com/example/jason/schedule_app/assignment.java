@@ -75,8 +75,8 @@ public class assignment extends AppCompatActivity {
     assignment () {
 
         assignName= "Assignment Name";
-                assignType= "Assignment Type";
-        points= 1;
+        assignType= "Assignment Type";
+        points= 0;
         date = "Assignment Date";
     }
 
@@ -93,7 +93,7 @@ public class assignment extends AppCompatActivity {
         this.isList = isList;
     }
 
-
+//
     public double getPointValue(int valueOne, int valueTwo) {
         int one = valueOne;
         int two = valueTwo;
@@ -110,6 +110,12 @@ public class assignment extends AppCompatActivity {
         return isList;
     }
 
+    //need four functions
+    //1. get assignment type priority
+    //2. compare priorities of assignment type and date
+    //3. edit/delete assignment in queue
+    //4. save queue
+
     //tiffany add
     //this puts the assignment information into the Queue
     Queue<AssignmentQueue> CreateQueue() {
@@ -122,12 +128,21 @@ public class assignment extends AppCompatActivity {
         //if assignemnt then add to queue
 
         //dummy item to add
-        items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-        items.add(new AssignmentQueue(date, assignName, assignType, points));
+        //need if else statement saying if variables !=0 then add else return "No Assignments"
+        //check if null
+
+        if (points==1) {
+            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 200));
+            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 700));
+            items.add(new AssignmentQueue(date, assignName, assignType, points));
+        }
+        else
+        {items.add(new AssignmentQueue("","No Assignments Here", "", 0));}
 
         //error log
         Log.v(TAG, "Error passing value");
-        ArrayList list = new ArrayList(items);
         return items;
 
     }

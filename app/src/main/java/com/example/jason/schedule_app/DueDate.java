@@ -39,6 +39,7 @@ public class DueDate {
         return 0;
     }
 
+    //compare dates to prioritize
     public int compareDate(DueDate date) {
         //compare with another date
         return 0;
