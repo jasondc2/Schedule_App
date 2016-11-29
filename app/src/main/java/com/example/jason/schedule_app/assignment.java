@@ -20,18 +20,23 @@ import java.util.Queue;
 
 
 public class assignment extends AppCompatActivity {
+    //needs edits
     EditText pointUser;
+    EditText className;
+    EditText assignmentType;
+    EditText assignmentName;
+    EditText dueDate;
+    EditText estTime;
+    //
+
     double pointValue;
     boolean isList;
     String pointsWorth;
-    String assignName;
-    String assignType;
-    String className;
+    String assignNames;
+    String assignTypes;
+    String classNames;
     int points;
     String date;
-
-    private EditText Name, Date, Date1, Date2, Date3, Date4, Date5;
-int priority;
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -41,11 +46,14 @@ int priority;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
 
-
-
+        //needs edits
         pointUser = (EditText) findViewById(R.id.pointsString);
-        pointsWorth = pointUser.getText().toString();
-        //points = Integer.parseInt(pointsWorth);
+        className = (EditText) findViewById(R.id.className);
+        assignmentType = (EditText) findViewById(R.id.assignType);
+        assignmentName = (EditText) findViewById(R.id.assignName);
+        dueDate = (EditText) findViewById(R.id.dueDate);
+        estTime = (EditText) findViewById(R.id.estTime);
+        //
 
         Button cancel_action = (Button) findViewById(R.id.cancel_action);
         Button submit = (Button) findViewById(R.id.submit);
@@ -62,35 +70,16 @@ int priority;
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Name = (EditText) findViewById(R.id.pointsString) ; //this is a number
-                Date = (EditText) findViewById(R.id.editText10) ; //this is classname
-                Date1 = (EditText) findViewById(R.id.editText11) ; //assignment name
-                Date2 = (EditText) findViewById(R.id.editText12) ; //type
-                Date3 = (EditText) findViewById(R.id.pointsString) ;
-                Date4 = (EditText) findViewById(R.id.editText14) ;
-                Date5 = (EditText) findViewById(R.id.editText15) ;
 
-                String text =  Date2 .getText().toString();
-
-                int dateP =0;
-                int typeP =0;
-
-                //get date
-                DueDate date = new DueDate();
-                dateP= date.getDatePriority();
-
-                //get type
-                typeP=getType(text);
-
-                //set priority
-               priority =0;
-               priority=setPrority(dateP,typeP);
-
-                //save to shared preferences
-                String strI = Integer.toString(priority);
-                //change activity
-                Intent myIntent = new Intent(assignment.this, listActivity.class);
-                myIntent.putExtra("name", "Over all prority" + strI + " " + text);
+                Intent myIntent = new Intent(getApplicationContext(), listActivity.class);
+                //needs edits
+                myIntent.putExtra("points", pointUser.getText().toString());
+                myIntent.putExtra("className", className.getText().toString());
+                myIntent.putExtra("assignmentType", assignmentType.getText().toString());
+                myIntent.putExtra("assignName", assignmentName.getText().toString());
+                myIntent.putExtra("dueDate", dueDate.getText().toString());
+                myIntent.putExtra("estTime", estTime.getText().toString());
+                //
                 startActivity(myIntent);
             }
         });
@@ -100,14 +89,15 @@ int priority;
     //constructor
     assignment () {
 
-        assignName= "Assignment Name";
-        assignType= "Assignment Type";
-        points= 2;
+        assignNames= "Assignment Name";
+        assignTypes= "Assignment Type";
+        points= 1;
         date = "Assignment Date";
     }
 
-
-
+    //constructor
+    //FYI this isn't a constructor. It's just a function. Do you need a constructor? Java will create one when you're lacking one. -Tiffany
+    //Is this suppose to be a copy constructor?
     void assignmentVar(double pointValue, boolean isList) {
         //log tag 1
         Log.d(TAG, "Assignment Constructor");
@@ -116,7 +106,6 @@ int priority;
         this.isList = isList;
     }
 
-//
     public double getPointValue(int valueOne, int valueTwo) {
         int one = valueOne;
         int two = valueTwo;
@@ -135,31 +124,45 @@ int priority;
 
     //need four functions
     //1. get assignment type priority
-    int getType(String ponder)
-    {
-        int typePoints=0;
-        if (ponder=="Ponder")
-        {typePoints=1;}
-        if (ponder=="Prove")
-        {typePoints=3;}
-        if (ponder=="Teach")
-        {typePoints=2; }
-        return typePoints;
-
-    }
     //2. compare priorities of assignment type and date
-    int setPrority(int type, int date)
-    {
-        int priority=0;
-
-        priority=type+date;
-
-        return priority;
-    }
-    //3. edit/delete assignment in com.example.jason.schedule_app.SAtest.queue
-    //4. save com.example.jason.schedule_app.SAtest.queue
+    //3. edit/delete assignment in queue
+    //4. save queue
 
     //tiffany add
     //this puts the assignment information into the Queue
+    Queue<AssignmentQueue> CreateQueue(String dueDate, String assignName, String assignType) {
 
+
+        Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
+
+        //need an if statement here
+        //if assignemnt then add to queue
+
+        //dummy item to add
+        //need if else statement saying if variables !=0 then add else return "No Assignments"
+        //check if null
+
+        //needs edits
+        date = dueDate;
+        assignNames = assignName;
+        assignTypes = assignType;
+        //
+
+
+        if (points==1) {
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 200));
+            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 700));
+            //needs edits
+            items.add(new AssignmentQueue(date, assignNames, assignTypes, 500));
+        }
+        else
+        {items.add(new AssignmentQueue("","No Assignments Here", "", 0));}
+
+        //error log
+        Log.v(TAG, "Error passing value");
+        return items;
+
+    }
 }
