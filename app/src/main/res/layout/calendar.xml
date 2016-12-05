@@ -4,22 +4,19 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/week"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:showDividers="beginning|middle|end">
+        android:id="@+id/week">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Sunday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/SundayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -30,15 +27,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Monday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/MondayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -49,15 +46,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Tuesday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/TuesdayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -68,15 +65,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Wednesday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/WednesdayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -87,15 +84,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Thursday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/ThursdayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -106,15 +103,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Friday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/FridayDate"
                 android:layout_weight="1"
                 android:paddingRight="5dp"
@@ -125,15 +122,15 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="@string/size"
+            android:layout_height="@string/size"
             android:id="@+id/Saturday"
-            android:showDividers="beginning|middle|end">
+            android:background="@drawable/mydrawable">
 
             <TextView
                 android:text="@string/blankDate"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@string/size"
                 android:id="@+id/SaturdayDate"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"

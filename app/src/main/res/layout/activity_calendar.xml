@@ -23,159 +23,6 @@
         android:textAlignment="center"
         android:typeface="serif" />
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="111dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/headerRow" >
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/SundayHead">
-
-                <TextView
-                    android:text="@string/Sun"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Sunday"
-                    android:layout_weight="1"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="10dp"
-                    tools:textAlignment="center"
-                    android:paddingEnd="10dp"
-                    android:paddingStart="5dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/MondayHead">
-
-                <TextView
-                    android:text="@string/Mon"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Monday"
-                    android:layout_weight="1"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    tools:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/TuesdayHead">
-
-                <TextView
-                    android:text="@string/Tues"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Tuesday"
-                    android:layout_weight="1"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    tools:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/WednesdayHead">
-
-                <TextView
-                    android:text="@string/Wed"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Wednesday"
-                    android:layout_weight="1"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    tools:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/ThursdayHead">
-
-                <TextView
-                    android:text="@string/Thurs"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Thursday"
-                    android:layout_weight="1"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    tools:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/FridayHead">
-
-                <TextView
-                    android:text="@string/Fri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Friday"
-                    tools:textSize="18sp"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
-                    tools:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/SaturdayHead">
-
-                <TextView
-                    android:text="@string/Sat"
-                    android:layout_width="42dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Saturday"
-                    tools:textSize="18sp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="0dp"
-                    tools:textAlignment="center"
-                    tools:layout_weight="1"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="5dp" />
-            </LinearLayout>
-        </TableRow>
-        <include android:id="@+id/week1" layout="@layout/calendar" />
-        <include android:id="@+id/week2" layout="@layout/calendar" />
-        <include android:id="@+id/week3" layout="@layout/calendar" />
-        <include android:id="@+id/week4" layout="@layout/calendar" />
-        <include android:id="@+id/week5" layout="@layout/calendar" />
-        <include android:id="@+id/week6" layout="@layout/calendar" />
-
-    </TableLayout>
-
     <Button
         android:text="@string/prevMonth"
         android:layout_width="wrap_content"
@@ -197,5 +44,175 @@
         android:layout_alignEnd="@+id/prevMonth"
         android:layout_alignRight="@+id/prevMonth"/>
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/headerRow" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SundayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Sun"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Sunday"
+                    android:layout_weight="1"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    tools:textAlignment="center"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MondayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Mon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Monday"
+                    android:layout_weight="1"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    tools:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TuesdayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Tues"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Tuesday"
+                    android:layout_weight="1"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    tools:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/WednesdayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Wed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Wednesday"
+                    android:layout_weight="1"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    tools:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ThursdayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Thurs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Thursday"
+                    android:layout_weight="1"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    tools:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/FridayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Fri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Friday"
+                    tools:textSize="18sp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    tools:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/SaturdayHead"
+                android:background="@drawable/mydrawable">
+
+                <TextView
+                    android:text="@string/Sat"
+                    android:layout_width="42dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Saturday"
+                    tools:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="0dp"
+                    tools:textAlignment="center"
+                    tools:layout_weight="1"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="5dp" />
+            </LinearLayout>
+        </TableRow>
+        <include android:id="@+id/week1" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <include android:id="@+id/week2" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <include android:id="@+id/week3" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <include android:id="@+id/week4" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <include android:id="@+id/week5" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        <include android:id="@+id/week6" layout="@layout/calendar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </TableLayout>
+
 
 </RelativeLayout>
+    <!-- SABRINA BELL -->
+

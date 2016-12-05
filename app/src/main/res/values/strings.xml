@@ -10,5 +10,7 @@
     <string name="Month">Month</string>
     <string name="prevMonth">&lt;\-</string>
     <string name="nextMonth">\-&gt;</string>
-    <string name="blankDate">#</string>
+    <string name="blankDate">&#32;</string>
+    <string name="size">45dp</string>
 </resources>
+
