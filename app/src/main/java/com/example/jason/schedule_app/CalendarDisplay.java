@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class CalendarDisplay extends AppCompatActivity {
     //initializes on current month,year
-    //uses Tiffany's queue to load assignments that are in this month, year... so check for those
+    //uses Tiffany's com.example.jason.schedule_app.SAtest.queue to load assignments that are in this month, year... so check for those
     TextView Month;
     Calendar calendar;
     Button prevMonth;

@@ -39,6 +39,7 @@ public class assignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
 
+
         pointUser = (EditText) findViewById(R.id.pointsString);
         pointsWorth = pointUser.getText().toString();
         //points = Integer.parseInt(pointsWorth);
@@ -62,7 +63,7 @@ public class assignment extends AppCompatActivity {
                 pointsWorth = pointUser.getText().toString();
                 //points = Integer.parseInt(pointsWorth);
 
-                CreateQueue();
+
 
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
                 startActivity(myIntent);
@@ -76,7 +77,7 @@ public class assignment extends AppCompatActivity {
 
         assignName= "Assignment Name";
         assignType= "Assignment Type";
-        points= 0;
+        points= 2;
         date = "Assignment Date";
     }
 
@@ -113,37 +114,10 @@ public class assignment extends AppCompatActivity {
     //need four functions
     //1. get assignment type priority
     //2. compare priorities of assignment type and date
-    //3. edit/delete assignment in queue
-    //4. save queue
+    //3. edit/delete assignment in com.example.jason.schedule_app.SAtest.queue
+    //4. save com.example.jason.schedule_app.SAtest.queue
 
     //tiffany add
     //this puts the assignment information into the Queue
-    Queue<AssignmentQueue> CreateQueue() {
 
-        //int points = Integer.parseInt(pointsWorth);
-
-        Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
-
-        //need an if statement here
-        //if assignemnt then add to queue
-
-        //dummy item to add
-        //need if else statement saying if variables !=0 then add else return "No Assignments"
-        //check if null
-
-        if (points==1) {
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 200));
-            items.add(new AssignmentQueue("Novermber 15, 2016", "Essay", "Ponder", 700));
-            items.add(new AssignmentQueue(date, assignName, assignType, points));
-        }
-        else
-        {items.add(new AssignmentQueue("","No Assignments Here", "", 0));}
-
-        //error log
-        Log.v(TAG, "Error passing value");
-        return items;
-
-    }
 }
