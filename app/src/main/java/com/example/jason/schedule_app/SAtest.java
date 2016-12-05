@@ -22,10 +22,10 @@ public class SAtest {
      */
     Queue<Item> createQueue() {
         Queue<Item> items = new PriorityQueue<Item>();
-        items.add(new Item("Novermber 15, 2016", "Essay", "Ponder", 900));
-        items.add(new  Item("Novermber 15, 2016", "Essay", "Ponder", 88800));
-        items.add(new  Item("Novermber 15, 2016", "Essay", "Ponder", 200));
-        items.add(new  Item("Novermber 15, 2016", "Essay", "Ponder", 700));
+        items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 900));
+        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 88800));
+        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 200));
+        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 700));
 
      //   System.out.println("Order of items in PriorityQueue");
        // System.out.println(items);

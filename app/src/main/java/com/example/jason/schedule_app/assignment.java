@@ -30,6 +30,8 @@ public class assignment extends AppCompatActivity {
     int points;
     String date;
 
+    private EditText Name, Date, Date1, Date2, Date3, Date4, Date5;
+
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -38,6 +40,7 @@ public class assignment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
+
 
 
         pointUser = (EditText) findViewById(R.id.pointsString);
@@ -59,12 +62,24 @@ public class assignment extends AppCompatActivity {
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                pointUser = (EditText) findViewById(R.id.pointsString);
-                pointsWorth = pointUser.getText().toString();
-                //points = Integer.parseInt(pointsWorth);
+                Name = (EditText) findViewById(R.id.pointsString) ;
+                Date = (EditText) findViewById(R.id.editText10) ;
+                Date1 = (EditText) findViewById(R.id.editText11) ;
+                Date2 = (EditText) findViewById(R.id.editText12) ;
+                Date3 = (EditText) findViewById(R.id.pointsString) ;
+                Date4 = (EditText) findViewById(R.id.editText14) ;
+                Date5 = (EditText) findViewById(R.id.editText15) ;
 
+                //set priority
+                int dateP =0;
+                int typeP =0;
+                int priority =0;
+                getType(Date.getText().toString());
+                priority=setPrority(dateP,typeP);
 
+                //save to shared preferences
 
+                //change activity
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
                 startActivity(myIntent);
             }
@@ -83,9 +98,6 @@ public class assignment extends AppCompatActivity {
 
 
 
-    //constructor
-    //FYI this isn't a constructor. It's just a function. Do you need a constructor? Java will create one when you're lacking one. -Tiffany
-    //Is this suppose to be a copy constructor?
     void assignmentVar(double pointValue, boolean isList) {
         //log tag 1
         Log.d(TAG, "Assignment Constructor");
@@ -113,7 +125,27 @@ public class assignment extends AppCompatActivity {
 
     //need four functions
     //1. get assignment type priority
+    int getType(String ponder)
+    {
+        int typePoints=0;
+        if (ponder=="Ponder")
+        {typePoints=1;}
+        if (ponder=="Prove")
+        {typePoints=3;}
+        if (ponder=="Teach")
+        {typePoints=2; }
+        return typePoints;
+
+    }
     //2. compare priorities of assignment type and date
+    int setPrority(int type, int date)
+    {
+        int priority=0;
+
+        priority=type+date;
+
+        return priority;
+    }
     //3. edit/delete assignment in com.example.jason.schedule_app.SAtest.queue
     //4. save com.example.jason.schedule_app.SAtest.queue
 
