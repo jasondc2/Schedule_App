@@ -74,7 +74,7 @@ public class assignment extends AppCompatActivity {
                 int dateP =0;
                 int typeP =0;
                 int priority =0;
-                getType(Date.getText().toString());
+                typeP= getType(Date.getText().toString());
                 priority=setPrority(dateP,typeP);
 
                 //save to shared preferences
