@@ -53,5 +53,57 @@ public class DueDate {
         //compare with another date
         //+# means first is bigger, -# means second is bigger, I think
     }
+
+    public int getDatePriority(){
+        int diff = compareCurrentDate();
+        int priority;
+        diff = diff * 1000 * 60; //minute
+        diff = diff * 60; //hours
+        if (diff <= 24){
+            //1 day
+            priority = 10;
+            return priority;
+        }
+        else if (diff <= 48){
+            //2 days
+            priority = 9;
+            return priority;
+        }
+
+        diff = diff * 24; //day
+        if (diff <= 7){
+            //1 week
+            priority = 8;
+        }
+        else if (diff <= 14) {
+            //2 weeks
+            priority = 7;
+        }
+        else if (diff <= 21){
+            //3 weeks
+            priority = 6;
+        }
+        //average a month at 30
+        else if (diff <= 30){
+            //1 month
+            priority = 5;
+        }
+        else if (diff <= 60){
+            //2 months
+            priority = 4;
+        }
+        else if (diff <= 90){
+            //3 months
+            priority = 3;
+        }
+        else if (diff <= 180){
+            //6 months
+            priority = 2;
+        }
+        else{
+            priority = 1;
+        }
+        return priority;
+    }
 }
 //SABRINA BELL
