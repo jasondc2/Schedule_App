@@ -62,13 +62,16 @@ int priority;
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Name = (EditText) findViewById(R.id.pointsString) ;
-                Date = (EditText) findViewById(R.id.editText10) ;
-                Date1 = (EditText) findViewById(R.id.editText11) ;
-                Date2 = (EditText) findViewById(R.id.editText12) ;
+                Name = (EditText) findViewById(R.id.pointsString) ; //this is a number
+                Date = (EditText) findViewById(R.id.editText10) ; //this is classname
+                Date1 = (EditText) findViewById(R.id.editText11) ; //assignment name
+                Date2 = (EditText) findViewById(R.id.editText12) ; //type
                 Date3 = (EditText) findViewById(R.id.pointsString) ;
                 Date4 = (EditText) findViewById(R.id.editText14) ;
                 Date5 = (EditText) findViewById(R.id.editText15) ;
+
+                String text =  Date2 .getText().toString();
+
                 int dateP =0;
                 int typeP =0;
 
@@ -77,7 +80,7 @@ int priority;
                 dateP= date.getDatePriority();
 
                 //get type
-                typeP=getType("Teach");
+                typeP=getType(text);
 
                 //set priority
                priority =0;
@@ -87,7 +90,7 @@ int priority;
                 String strI = Integer.toString(priority);
                 //change activity
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
-                myIntent.putExtra("name", "Over all prority" + strI);
+                myIntent.putExtra("name", "Over all prority" + strI + " " + text);
                 startActivity(myIntent);
             }
         });
