@@ -69,12 +69,18 @@ public class assignment extends AppCompatActivity {
                 Date3 = (EditText) findViewById(R.id.pointsString) ;
                 Date4 = (EditText) findViewById(R.id.editText14) ;
                 Date5 = (EditText) findViewById(R.id.editText15) ;
-
-                //set priority
                 int dateP =0;
                 int typeP =0;
+
+                //get date
+                DueDate date = new DueDate();
+                dateP= date.compareCurrentDate();
+
+                //get type
+                typeP=getType(Date.getText().toString());
+
+                //set priority
                 int priority =0;
-                typeP= getType(Date.getText().toString());
                 priority=setPrority(dateP,typeP);
 
                 //save to shared preferences
