@@ -31,7 +31,7 @@ public class assignment extends AppCompatActivity {
     String date;
 
     private EditText Name, Date, Date1, Date2, Date3, Date4, Date5;
-
+int priority;
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -74,19 +74,20 @@ public class assignment extends AppCompatActivity {
 
                 //get date
                 DueDate date = new DueDate();
-                dateP= date.compareCurrentDate();
+                dateP= date.getDatePriority();
 
                 //get type
-                typeP=getType(Date.getText().toString());
+                typeP=getType("Teach");
 
                 //set priority
-                int priority =0;
-                priority=setPrority(dateP,typeP);
+               priority =0;
+               priority=setPrority(dateP,typeP);
 
                 //save to shared preferences
-
+                String strI = Integer.toString(priority);
                 //change activity
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
+                myIntent.putExtra("name", "Over all prority" + strI);
                 startActivity(myIntent);
             }
         });

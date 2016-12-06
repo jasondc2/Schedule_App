@@ -35,7 +35,7 @@ public class DueDate {
 
     public Calendar getDueDate() {
         if((dueDate.get(Calendar.HOUR_OF_DAY) > 12) &&
-                (dueDate.get(Calendar.AM_PM) == Calendar.PM)){ //weird bug
+                (dueDate.get(Calendar.AM_PM) == Calendar.THURSDAY)){ //weird bug
             dueDate.set(Calendar.HOUR_OF_DAY, dueDate.get(Calendar.HOUR_OF_DAY) - 12);
         }
         return dueDate;//might need work here

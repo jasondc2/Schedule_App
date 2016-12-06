@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class listActivity extends AppCompatActivity {
     // Array of strings...
     String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
             "WebOS","Ubuntu","Windows7","Max OS X"};
-
+TextView  myTextView;
 
 
 
@@ -41,6 +42,11 @@ public class listActivity extends AppCompatActivity {
 
         Button addAssignment = (Button) findViewById(R.id.assignment);
         Button viewCalendar = (Button) findViewById(R.id.buttonCalendar);
+        myTextView = (TextView) findViewById(R.id. myTextView) ;
+      //  getIntent().getSerializableExtra("Priority");
+        Intent mIntent = getIntent();
+        String name =  mIntent.getStringExtra("name");
+        myTextView.setText( name);
 
         // Capture button clicks
         addAssignment.setOnClickListener(new View.OnClickListener() {
@@ -65,15 +71,11 @@ public class listActivity extends AppCompatActivity {
         });
 
 
-        //grab com.example.jason.schedule_app.SAtest.queue from storage
+
         SAtest create = new SAtest();
         items=create.createQueue();
         ArrayList list = new ArrayList(items);
 
-
-       // ArrayList userList   = new ArrayList();
-// Load user List from preferences
-// Get the current list.
 
     ArrayAdapter adapter = new ArrayAdapter<String>(this,
         R.layout.activity_list_view, list);
