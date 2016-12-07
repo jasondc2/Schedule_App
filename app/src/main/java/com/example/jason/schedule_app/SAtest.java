@@ -17,15 +17,15 @@ import java.util.Set;
  */
 public class SAtest {
 
-    /**
+    /**className, assignmentName,assignmentType,date,time, assignmentPoints, overallPrio
      *
      */
     Queue<Item> createQueue() {
         Queue<Item> items = new PriorityQueue<Item>();
-        items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 900));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 88800));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 200));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 700));
+        items.add(new Item("CS 246", "Java", "Ponder", 233, "12/01/2016", 233, 66 ));
+        items.add(new  Item("CS 246", "Java", "Ponder", 233, "12/06/2016", 233, 8 ));
+        items.add(new  Item("CS 246", "Java", "Ponder", 233, "1/3/2017", 233, 1 ));
+        items.add(new  Item("CS 246", "Java", "Ponder", 233, "2/01/2017", 233, 2 ));
 
      //   System.out.println("Order of items in PriorityQueue");
        // System.out.println(items);
@@ -55,12 +55,18 @@ return items;
         private int time;
         private String assignmentName;
         private  String assignmentType;
+        private String className;
+        private int assignmentPoints;
+        private int overallPriority;
 
-        public Item(String assignmentType,String assignmentName, String date, int time) {
+        public Item(String assignmentType,String assignmentName, String date, int time, String className, int assingmentPoints,int overallPriority) {
             this.date = date;
             this.time = time;
             this.assignmentName=assignmentName;
             this.assignmentType=assignmentType;
+            this.className=className;
+            this.assignmentPoints=assingmentPoints;
+            this.overallPriority=overallPriority;
         }
 
         public String getAssignmentName() {
@@ -97,7 +103,7 @@ return items;
             if ((this.assignmentType == null) ? (other.assignmentType != null) : !this.assignmentType.equals(other.assignmentType)) {
                 return false;
             }
-            if (this.time != other.time) {
+            if (this.overallPriority != other.overallPriority) {
                 return false;
             }
             return true;
@@ -107,23 +113,23 @@ return items;
         public int hashCode() {
             int hash = 5;
             hash = 97 * hash + (this.date != null ? this.date.hashCode() : 0);
-            hash = 97 * hash + this.time;
+            hash = 97 * hash + this.overallPriority;
             return hash;
         }
 
         @Override
         public int compareTo(Item i) {
-            if ((this.time == i.time) ){
+            if ((this.overallPriority == i.overallPriority) ){
                 return this.date.compareTo(i.date) ;
                 // return (this.assignmentName.compareTo(i.assignmentName));
             }
 
-            return this.time - i.time;
+            return this.overallPriority - i.overallPriority;
         }
 
         @Override
         public String toString() {
-            return String.format("%s: %s: %s: %d", assignmentName,assignmentType,date,time);
+            return String.format("%s: %s: %s : %s: %s: %d : %d",  className, assignmentName,assignmentType,date,time, assignmentPoints, overallPriority);
         }
 
     }

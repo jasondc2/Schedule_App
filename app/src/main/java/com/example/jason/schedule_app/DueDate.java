@@ -54,7 +54,7 @@ public class DueDate {
         //+# means first is bigger, -# means second is bigger, I think
     }
 
-    public int getDatePriority(){
+    public int getDatePriority(int Date){
         int diff = compareCurrentDate();
         int priority;
         diff = diff * 1000 * 60; //minute

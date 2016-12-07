@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
@@ -66,21 +68,24 @@ int priority;
                 Date = (EditText) findViewById(R.id.editText10) ; //this is classname
                 Date1 = (EditText) findViewById(R.id.editText11) ; //assignment name
                 Date2 = (EditText) findViewById(R.id.editText12) ; //type
-                Date3 = (EditText) findViewById(R.id.pointsString) ;
-                Date4 = (EditText) findViewById(R.id.editText14) ;
-                Date5 = (EditText) findViewById(R.id.editText15) ;
+                Date3 = (EditText) findViewById(R.id.editText14) ;
+                Date4 = (EditText) findViewById(R.id.editText15) ;
 
-                String text =  Date2 .getText().toString();
+                String type =  Date2 .getText().toString();
+
+                String AssignmentDate=  Date1.getText().toString();
+
 
                 int dateP =0;
                 int typeP =0;
 
                 //get date
                 DueDate date = new DueDate();
-                dateP= date.getDatePriority();
+                dateP= datePP( AssignmentDate);
 
                 //get type
-                typeP=getType(text);
+                //should be type but won't work?
+               typeP=getType(type);
 
                 //set priority
                priority =0;
@@ -90,20 +95,11 @@ int priority;
                 String strI = Integer.toString(priority);
                 //change activity
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
-                myIntent.putExtra("name", "Over all prority" + strI + " " + text);
+                myIntent.putExtra("name", "Over all prority" + strI + " " + dateP);
                 startActivity(myIntent);
             }
         });
 
-    }
-
-    //constructor
-    assignment () {
-
-        assignName= "Assignment Name";
-        assignType= "Assignment Type";
-        points= 2;
-        date = "Assignment Date";
     }
 
 
@@ -137,16 +133,57 @@ int priority;
     //1. get assignment type priority
     int getType(String ponder)
     {
+        String Ponder = "Ponder";
+        String Prove = "Prove";
+        String Teach = "Teach";
         int typePoints=0;
-        if (ponder=="Ponder")
+        if (ponder.equals(Ponder));
         {typePoints=1;}
-        if (ponder=="Prove")
+        if (ponder.equals(Prove));
         {typePoints=3;}
-        if (ponder=="Teach")
+        if (ponder.equals(Teach));
         {typePoints=2; }
         return typePoints;
 
     }
+
+    int datePP( String assignmentDate) {
+        int priorityDate = 0;
+        String dateStart = assignmentDate;
+        // String dateStop = "01/15/2015 11:31:48";
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+
+//HH converts hour in 24 hours format (0-23), day calculation
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+
+        Date d1 = null;
+        Date d2 = null;
+
+        try {
+            d1 = format.parse(dateStart);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            d2 = format.parse(dateFormat.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+//in milliseconds
+        int diff = (int) (d1.getTime() - d2.getTime());
+
+        //   long diffSeconds = diff / 1000 % 60;
+        //    long diffMinutes = diff / (60 * 1000) % 60;
+        //  long diffHours = diff / (60 * 60 * 1000) % 24;
+        int diffDays = diff / (24 * 60 * 60 * 1000);
+
+
+        return diffDays;
+    }
+
     //2. compare priorities of assignment type and date
     int setPrority(int type, int date)
     {
