@@ -233,7 +233,7 @@ public class CalendarDisplay extends AppCompatActivity {
 
     //having clicked a date
     public void onClick(View v){
-        //open popup
+        //open com.example.jason.schedule_app.popup
         PopupWindow popUpWindow = new PopupWindow(this);
         //it's a scrollable list screen
         //WORK HERE
