@@ -12,5 +12,7 @@
     <string name="nextMonth">\-&gt;</string>
     <string name="blankDate">&#32;</string>
     <string name="size">45dp</string>
+    <string name="assignName">Assignment Name</string>
+    <string name="itemName">Item Name</string>
 </resources>
 
