@@ -1,6 +1,7 @@
 package com.example.jason.schedule_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,11 +9,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
+    public static final String PREFS_NAME = "MyPreferencesFile";
+    public String value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences variables = getSharedPreferences(PREFS_NAME, 0);
+        value = variables.getString("name", "homework");
         // Get the view from activity_main.xml
 
         // Locate the button in activity_main.xml
@@ -48,5 +53,6 @@ public class MainActivity extends AppCompatActivity {
        // getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+
 }
 

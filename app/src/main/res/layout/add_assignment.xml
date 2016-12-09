@@ -79,7 +79,8 @@
         <EditText
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:inputType="time"
+            android:inputType="date"
+            android:hint="12/7/2016"
             android:ems="10"
             android:layout_below="@+id/pointString"
             android:layout_alignParentRight="true"
@@ -165,5 +166,8 @@
             android:layout_alignLeft="@+id/submit"
             android:layout_alignStart="@+id/submit"
             android:layout_marginBottom="46dp" />
+
+
+
     </RelativeLayout>
 </LinearLayout>

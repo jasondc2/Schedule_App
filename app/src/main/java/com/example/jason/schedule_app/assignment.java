@@ -1,5 +1,7 @@
 package com.example.jason.schedule_app;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,11 +10,14 @@ import android.widget.ListView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashSet;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Set;
+
 /**
  * Created by jason on 11/2/2016.
  */
@@ -20,23 +25,26 @@ import java.util.Queue;
 
 
 public class assignment extends AppCompatActivity {
-    //needs edits
-    EditText pointUser;
-    EditText className;
-    EditText assignmentType;
-    EditText assignmentName;
-    EditText dueDate;
-    EditText estTime;
-    //
+    EditText test;
+
+    private static final int PREFERENCE_MODE_PRIVATE = 0;
+    private static final String MY_UNIQUE_PREFERENCE_FILE = "MyUniquePreferenceFile";
+    private SharedPreferences preferenceSettingsUnique;
+    private SharedPreferences.Editor preferenceEditorUnique;
+
 
     double pointValue;
     boolean isList;
     String pointsWorth;
-    String assignNames;
-    String assignTypes;
-    String classNames;
+    String assignName;
+    String assignType;
+    String className;
     int points;
     String date;
+
+
+    private EditText Name, Date, Date1, Date2, Date3, Date4, Date5;
+    int priority;
 
 
     private static final String TAG = assignment.class.getSimpleName();
@@ -46,17 +54,15 @@ public class assignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
 
-        //needs edits
-        pointUser = (EditText) findViewById(R.id.pointsString);
-        className = (EditText) findViewById(R.id.className);
-        assignmentType = (EditText) findViewById(R.id.assignType);
-        assignmentName = (EditText) findViewById(R.id.assignName);
-        dueDate = (EditText) findViewById(R.id.dueDate);
-        estTime = (EditText) findViewById(R.id.estTime);
-        //
+
+
+        //pointUser = (EditText) findViewById(R.id.pointsString);
+        //pointsWorth = pointUser.getText().toString();
+        //points = Integer.parseInt(pointsWorth);
 
         Button cancel_action = (Button) findViewById(R.id.cancel_action);
         Button submit = (Button) findViewById(R.id.submit);
+
 
         cancel_action.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -70,16 +76,38 @@ public class assignment extends AppCompatActivity {
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                //Name = (EditText) findViewById(R.id.pointsString) ; //this is a number
+                //Date = (EditText) findViewById(R.id.editText10) ; //this is classname
+                //Date1 = (EditText) findViewById(R.id.editText11) ; //assignment name
+                //Date2 = (EditText) findViewById(R.id.editText12) ; //type
+                //Date3 = (EditText) findViewById(R.id.pointsString) ;
+                //Date4 = (EditText) findViewById(R.id.editText14) ;
+                //Date5 = (EditText) findViewById(R.id.editText15) ;
 
-                Intent myIntent = new Intent(getApplicationContext(), listActivity.class);
-                //needs edits
-                myIntent.putExtra("points", pointUser.getText().toString());
-                myIntent.putExtra("className", className.getText().toString());
-                myIntent.putExtra("assignmentType", assignmentType.getText().toString());
-                myIntent.putExtra("assignName", assignmentName.getText().toString());
-                myIntent.putExtra("dueDate", dueDate.getText().toString());
-                myIntent.putExtra("estTime", estTime.getText().toString());
-                //
+                //String text =  Date2.getText().toString();
+
+                int dateP =0;
+                int typeP =0;
+
+                //get date
+                DueDate date = new DueDate();
+                dateP= date.getDatePriority();
+
+                //get type
+                //typeP=getType(text);
+
+                //set priority
+                priority =0;
+                priority=setPrority(dateP,typeP);
+
+
+                //save to shared preferences
+                String strI = Integer.toString(priority);
+
+                saveVar();
+                //change activity
+                Intent myIntent = new Intent(assignment.this, listActivity.class);
+                //myIntent.putExtra("name", "Over all prority" + strI + " " + text);
                 startActivity(myIntent);
             }
         });
@@ -89,15 +117,33 @@ public class assignment extends AppCompatActivity {
     //constructor
     assignment () {
 
-        assignNames= "Assignment Name";
-        assignTypes= "Assignment Type";
-        points= 1;
+        assignName= "Assignment Name";
+        assignType= "Assignment Type";
+        points= 2;
         date = "Assignment Date";
     }
 
-    //constructor
-    //FYI this isn't a constructor. It's just a function. Do you need a constructor? Java will create one when you're lacking one. -Tiffany
-    //Is this suppose to be a copy constructor?
+    public void saveVar() {
+        Set<String> value = new HashSet<String>();
+
+        test = (EditText) findViewById(R.id.className);
+        value.add(test.getText().toString());
+
+        preferenceSettingsUnique = getSharedPreferences(MY_UNIQUE_PREFERENCE_FILE, PREFERENCE_MODE_PRIVATE);
+        preferenceEditorUnique = preferenceSettingsUnique.edit();
+
+        preferenceEditorUnique.putStringSet("test", value);
+        preferenceEditorUnique.commit();
+    }
+
+    /*public String getVar() {
+        preferenceSettingsUnique = getSharedPreferences(MY_UNIQUE_PREFERENCE_FILE, PREFERENCE_MODE_PRIVATE);
+        String value = preferenceSettingsUnique.getString("test", "null");
+
+        return value;
+    }*/
+
+
     void assignmentVar(double pointValue, boolean isList) {
         //log tag 1
         Log.d(TAG, "Assignment Constructor");
@@ -106,6 +152,7 @@ public class assignment extends AppCompatActivity {
         this.isList = isList;
     }
 
+    //
     public double getPointValue(int valueOne, int valueTwo) {
         int one = valueOne;
         int two = valueTwo;
@@ -124,45 +171,31 @@ public class assignment extends AppCompatActivity {
 
     //need four functions
     //1. get assignment type priority
+    int getType(String ponder)
+    {
+        int typePoints=0;
+        if (ponder=="Ponder")
+        {typePoints=1;}
+        if (ponder=="Prove")
+        {typePoints=3;}
+        if (ponder=="Teach")
+        {typePoints=2; }
+        return typePoints;
+
+    }
     //2. compare priorities of assignment type and date
-    //3. edit/delete assignment in queue
-    //4. save queue
+    int setPrority(int type, int date)
+    {
+        int priority=0;
+
+        priority=type+date;
+
+        return priority;
+    }
+    //3. edit/delete assignment in com.example.jason.schedule_app.SAtest.queue
+    //4. save com.example.jason.schedule_app.SAtest.queue
 
     //tiffany add
     //this puts the assignment information into the Queue
-    Queue<AssignmentQueue> CreateQueue(String dueDate, String assignName, String assignType) {
 
-
-        Queue<AssignmentQueue> items = new PriorityQueue<AssignmentQueue>();
-
-        //need an if statement here
-        //if assignemnt then add to queue
-
-        //dummy item to add
-        //need if else statement saying if variables !=0 then add else return "No Assignments"
-        //check if null
-
-        //needs edits
-        date = dueDate;
-        assignNames = assignName;
-        assignTypes = assignType;
-        //
-
-
-        if (points==1) {
-            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 900));
-            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 200));
-            items.add(new AssignmentQueue("November 15, 2016", "Essay", "Ponder", 700));
-            //needs edits
-            items.add(new AssignmentQueue(date, assignNames, assignTypes, 500));
-        }
-        else
-        {items.add(new AssignmentQueue("","No Assignments Here", "", 0));}
-
-        //error log
-        Log.v(TAG, "Error passing value");
-        return items;
-
-    }
 }

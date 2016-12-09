@@ -5,9 +5,12 @@
  */
 package com.example.jason.schedule_app;
 import android.content.ClipData;
+import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
@@ -16,19 +19,31 @@ import java.util.Set;
  * @author whi08_000
  */
 public class SAtest {
+    String value;
 
     /**
      *
      */
-    Queue<Item> createQueue() {
-        Queue<Item> items = new PriorityQueue<Item>();
-        items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 900));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 88800));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 200));
-        items.add(new  Item("Nov 15, 2016", "Essay", "Ponder", 700));
+    Queue<Item> createQueue(Set<String> val) {
+        Iterator it = val.iterator();
 
-     //   System.out.println("Order of items in PriorityQueue");
-       // System.out.println(items);
+        //while(it.hasNext()) {
+                //value = (String) it.next();
+       // }
+            Queue<Item> items = new PriorityQueue<Item>();
+            items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 900));
+            items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 88800));
+            items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 200));
+            items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 700));
+            //items.add(new Item("Nov 15, 2016", value, "Ponder", 700));
+            while(it.hasNext()) {
+                value = (String) it.next();
+                items.add(new Item("Nov 15, 2016", value, "Ponder", 700));
+            }
+
+
+        //   System.out.println("Order of items in PriorityQueue");
+        // System.out.println(items);
 
         //  System.out.println("Element consumed from head of the PriorityQueue : " + items.poll());
         //   System.out.println(items);
@@ -43,7 +58,7 @@ public class SAtest {
         //   String[] strArray = {"foo", "foo", "bar"};
 //Set<String> mySet = new HashSet<>(Arrays.asList(strArray));
 //System.out.println(mySet);
-return items;
+        return items;
     }
 
     public static class Item implements Comparable<Item> {
@@ -128,5 +143,6 @@ return items;
 
     }
 }
+
 
 

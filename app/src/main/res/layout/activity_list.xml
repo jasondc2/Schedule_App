@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/assignment" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+
     <Button
         android:text="Calendar View ->"
         android:layout_width="wrap_content"
