@@ -95,7 +95,7 @@
             android:layout_below="@+id/dueDate"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/estTime" />
+            android:id="@+id/dueTime" />
 
         <TextView
             android:text="Assignment Name"
@@ -146,16 +146,16 @@
             android:layout_toStartOf="@+id/dueDate" />
 
         <TextView
-            android:text="Estimated Time"
+            android:text="Due Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="20sp"
-            android:layout_alignBaseline="@+id/estTime"
-            android:layout_alignBottom="@+id/estTime"
-            android:layout_toLeftOf="@+id/estTime"
-            android:layout_toStartOf="@+id/estTime" />
+            android:layout_alignBaseline="@+id/dueTime"
+            android:layout_alignBottom="@+id/dueTime"
+            android:layout_toLeftOf="@+id/dueTime"
+            android:layout_toStartOf="@+id/dueTime" />
 
         <Button
             android:text="Cancel"

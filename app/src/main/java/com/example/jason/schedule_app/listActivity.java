@@ -46,11 +46,17 @@ public class listActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         preferenceSettingsUnique = getSharedPreferences(MY_UNIQUE_PREFERENCE_FILE, PREFERENCE_MODE_PRIVATE);
-        Set<String> value = preferenceSettingsUnique.getStringSet("test", nullSet);
+        //Set<String> value = preferenceSettingsUnique.getStringSet("test", nullSet);
+        Set<String> valueClass = preferenceSettingsUnique.getStringSet("classNames", nullSet);
+        Set<String> valueAssign = preferenceSettingsUnique.getStringSet("assignNames", nullSet);
+        Set<String> valueType = preferenceSettingsUnique.getStringSet("assignTypes", nullSet);
+        Set<String> valuePoints = preferenceSettingsUnique.getStringSet("pointsString", nullSet);
+        Set<String> valueDates = preferenceSettingsUnique.getStringSet("dueDates", nullSet);
+        Set<String> valueTime = preferenceSettingsUnique.getStringSet("dueTimes", nullSet);
 
 
         Queue<SAtest.Item> items = new PriorityQueue<>();
-        test = (TextView)findViewById(R.id.textView3);
+        //test = (TextView)findViewById(R.id.textView3);
         //test.setText(value);
 
 
@@ -87,7 +93,7 @@ public class listActivity extends AppCompatActivity {
 
 
         SAtest create = new SAtest();
-        items=create.createQueue(value);
+        items=create.createQueue(valueClass, valueAssign, valueType, valuePoints, valueDates, valueTime);
         ArrayList list = new ArrayList(items);
 
 

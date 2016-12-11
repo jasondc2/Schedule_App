@@ -25,12 +25,25 @@ import java.util.Set;
 
 
 public class assignment extends AppCompatActivity {
-    EditText test;
+    EditText classNames;
+    EditText assignNames;
+    EditText assignTypes;
+    EditText pointsString;
+    EditText dueDates;
+    EditText dueTimes;
 
     private static final int PREFERENCE_MODE_PRIVATE = 0;
     private static final String MY_UNIQUE_PREFERENCE_FILE = "MyUniquePreferenceFile";
     private SharedPreferences preferenceSettingsUnique;
     private SharedPreferences.Editor preferenceEditorUnique;
+
+    Set<String> nullSet;
+    Set<String> valueClass = new HashSet<>();
+    Set<String> valueAssign = new HashSet<>();
+    Set<String> valueType = new HashSet<>();
+    Set<String> valuePoint = new HashSet<>();
+    Set<String> valueDates = new HashSet<>();
+    Set<String> valueTime = new HashSet<>();
 
 
     double pointValue;
@@ -124,15 +137,42 @@ public class assignment extends AppCompatActivity {
     }
 
     public void saveVar() {
-        Set<String> value = new HashSet<String>();
-
-        test = (EditText) findViewById(R.id.className);
-        value.add(test.getText().toString());
-
         preferenceSettingsUnique = getSharedPreferences(MY_UNIQUE_PREFERENCE_FILE, PREFERENCE_MODE_PRIVATE);
         preferenceEditorUnique = preferenceSettingsUnique.edit();
+        Set<String> var1 = preferenceSettingsUnique.getStringSet("classNames", nullSet);
+        Set<String> var2 = preferenceSettingsUnique.getStringSet("assignNames", nullSet);
+        Set<String> var3 = preferenceSettingsUnique.getStringSet("assignTypes", nullSet);
+        Set<String> var4 = preferenceSettingsUnique.getStringSet("pointsString", nullSet);
+        Set<String> var5 = preferenceSettingsUnique.getStringSet("dueDates", nullSet);
+        Set<String> var6 = preferenceSettingsUnique.getStringSet("dueTimes", nullSet);
+        valueClass = var1;
+        valueAssign = var2;
+        valueType = var3;
+        valuePoint = var4;
+        valueDates = var5;
+        valueTime = var6;
 
-        preferenceEditorUnique.putStringSet("test", value);
+        classNames = (EditText) findViewById(R.id.className);
+        assignNames = (EditText) findViewById(R.id.assignName);
+        assignTypes = (EditText) findViewById(R.id.assignType);
+        pointsString = (EditText) findViewById(R.id.pointString);
+        dueDates = (EditText) findViewById(R.id.dueDate);
+        dueTimes = (EditText) findViewById(R.id.dueTime);
+
+        valueClass.add(classNames.getText().toString());
+        valueAssign.add(assignNames.getText().toString());
+        valueType.add(assignTypes.getText().toString());
+        valuePoint.add(pointsString.getText().toString());
+        valueDates.add(dueDates.getText().toString());
+        valueTime.add(dueTimes.getText().toString());
+
+
+        preferenceEditorUnique.putStringSet("classNames", valueClass);
+        preferenceEditorUnique.putStringSet("assignNames", valueAssign);
+        preferenceEditorUnique.putStringSet("assignTypes", valueType);
+        preferenceEditorUnique.putStringSet("pointsString", valuePoint);
+        preferenceEditorUnique.putStringSet("dueDates", valueDates);
+        preferenceEditorUnique.putStringSet("dueTimes", valueTime);
         preferenceEditorUnique.commit();
     }
 

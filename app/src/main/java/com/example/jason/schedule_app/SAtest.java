@@ -19,13 +19,24 @@ import java.util.Set;
  * @author whi08_000
  */
 public class SAtest {
-    String value;
+    String classNames;
+    String assignNames;
+    String assignTypes;
+    int assignPoints;
+    String Dates;
+    String Time;
+    String pointString;
 
     /**
      *
      */
-    Queue<Item> createQueue(Set<String> val) {
-        Iterator it = val.iterator();
+    Queue<Item> createQueue(Set<String> valueClass, Set<String> valueAssign, Set<String> valueType, Set<String> valuePoints, Set<String> valueDates, Set<String> valueTime) {
+        Iterator it = valueClass.iterator();
+        Iterator it1 = valueAssign.iterator();
+        Iterator it2 = valueType.iterator();
+        Iterator it3 = valuePoints.iterator();
+        Iterator it4 = valueDates.iterator();
+        Iterator it5 = valueTime.iterator();
 
         //while(it.hasNext()) {
                 //value = (String) it.next();
@@ -37,8 +48,12 @@ public class SAtest {
             items.add(new Item("Nov 15, 2016", "Essay", "Ponder", 700));
             //items.add(new Item("Nov 15, 2016", value, "Ponder", 700));
             while(it.hasNext()) {
-                value = (String) it.next();
-                items.add(new Item("Nov 15, 2016", value, "Ponder", 700));
+                classNames = (String) it.next();
+                Dates = (String) it4.next();
+                assignTypes = (String) it2.next();
+                pointString = (String) it3.next();
+                assignPoints = Integer.parseInt(pointString);
+                items.add(new Item(Dates, classNames, assignTypes, assignPoints));
             }
 
 
