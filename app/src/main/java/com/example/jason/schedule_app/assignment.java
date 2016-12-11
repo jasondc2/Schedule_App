@@ -115,13 +115,7 @@ public class assignment extends AppCompatActivity {
     }
 
     //constructor
-    assignment () {
 
-        assignName= "Assignment Name";
-        assignType= "Assignment Type";
-        points= 2;
-        date = "Assignment Date";
-    }
 
     public void saveVar() {
         Set<String> value = new HashSet<String>();

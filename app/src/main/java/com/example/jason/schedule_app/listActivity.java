@@ -50,7 +50,7 @@ public class listActivity extends AppCompatActivity {
 
 
         Queue<SAtest.Item> items = new PriorityQueue<>();
-        test = (TextView)findViewById(R.id.textView3);
+
         //test.setText(value);
 
 
