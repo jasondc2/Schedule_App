@@ -118,7 +118,7 @@ public class assignment extends AppCompatActivity {
                 String strI = Integer.toString(priority);
 
                 saveVar();
-                //change activity
+                //change activitys
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
                 //myIntent.putExtra("name", "Over all prority" + strI + " " + text);
                 startActivity(myIntent);
