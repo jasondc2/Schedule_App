@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,13 +91,30 @@ public class listActivity extends AppCompatActivity {
         ArrayList list = new ArrayList(items);
 
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_list_view, list);
-
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this,
+                        R.layout.activity_list_view, list){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                // Get the current item from ListView
+                View view = super.getView(position,convertView,parent);
+                if(position == 0 || position == 1  )
+                {
+                    // Set a background color for ListView regular row/item
+                    view.setBackgroundColor(Color.parseColor("red"));
+                }
+                else  if(position == 2|| position == 3  )
+                {view.setBackgroundColor(Color.parseColor("yellow"));}
+                else
+                {
+                    // Set the background color for alternate row/item
+                    view.setBackgroundColor(Color.parseColor("green"));
+                }
+                return view;
+            }
+        };
         ListView listView = (ListView) findViewById(R.id.mobile_list);
+
         listView.setAdapter(adapter);
-        listView.setBackgroundColor(Color.parseColor("green"));
     }
-
-
 }
