@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         //The +assignment button takes the user to the right screen - Jason
         Button addAssignment = (Button) findViewById(R.id.addAssignment);
 
-
+        Button calendar2 = (Button) findViewById(R.id.calendar2);
 
         initializeCalendar();
 
@@ -43,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        calendar2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(MainActivity.this,CalendarDisplay.class);
+                startActivity(myIntent);
+
+            }
+        });
         // Capture button clicks
         addAssignment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {

@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".listActivity"></activity>
         <activity android:name=".assignment"></activity>
+        <activity android:name=".CalendarDisplay"></activity>
     </application>
 
 </manifest>

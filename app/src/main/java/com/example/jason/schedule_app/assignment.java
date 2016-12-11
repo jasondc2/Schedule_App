@@ -128,13 +128,7 @@ public class assignment extends AppCompatActivity {
     }
 
     //constructor
-    assignment () {
 
-        assignName= "Assignment Name";
-        assignType= "Assignment Type";
-        points= 2;
-        date = "Assignment Date";
-    }
 
     public void saveVar() {
         preferenceSettingsUnique = getSharedPreferences(MY_UNIQUE_PREFERENCE_FILE, PREFERENCE_MODE_PRIVATE);
