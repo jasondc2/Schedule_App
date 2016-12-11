@@ -6,7 +6,6 @@
     >
 
 
-
     <Button
         android:text="+Assignment"
         android:layout_width="130dp"

@@ -89,38 +89,37 @@ public class assignment extends AppCompatActivity {
 
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                //Name = (EditText) findViewById(R.id.pointsString) ; //this is a number
-                //Date = (EditText) findViewById(R.id.editText10) ; //this is classname
-                //Date1 = (EditText) findViewById(R.id.editText11) ; //assignment name
-                //Date2 = (EditText) findViewById(R.id.editText12) ; //type
-                //Date3 = (EditText) findViewById(R.id.pointsString) ;
-                //Date4 = (EditText) findViewById(R.id.editText14) ;
-                //Date5 = (EditText) findViewById(R.id.editText15) ;
+                Date2 = (EditText) findViewById(R.id.dueDate); //type
+                Date3 = (EditText) findViewById(R.id.assignType);
 
-                //String text =  Date2.getText().toString();
-
+                String text =  Date2.getText().toString();
+                String pp =  Date2.getText().toString();
                 int dateP =0;
                 int typeP =0;
 
                 //get date
                 DueDate date = new DueDate();
-                dateP= date.getDatePriority(2);
+                dateP= date.getDatePriority(text);
 
                 //get types
-                //typeP=getType(text);
+                typeP=getType(pp);
 
                 //set priority
                 priority =0;
+
+
+
+                //this sets priority
                 priority=setPrority(dateP,typeP);
 
 
-                //save to shared preferences
+                //this converts it to a string
                 String strI = Integer.toString(priority);
 
                 saveVar();
                 //change activitys
                 Intent myIntent = new Intent(assignment.this, listActivity.class);
-                //myIntent.putExtra("name", "Over all prority" + strI + " " + text);
+               // myIntent.putExtra("name", "Over all prority" + strI + " " + text);
                 startActivity(myIntent);
             }
         });
