@@ -106,7 +106,7 @@ public class assignment extends AppCompatActivity {
                 DueDate date = new DueDate();
                 dateP= date.getDatePriority(2);
 
-                //get type
+                //get types
                 //typeP=getType(text);
 
                 //set priority
