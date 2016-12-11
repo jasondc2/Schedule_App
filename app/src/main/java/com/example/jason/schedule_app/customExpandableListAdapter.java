@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Sabrina on 12/6/16.
  */
 
-public class CustomExpandableListAdapter extends BaseExpandableListAdapter{
+class CustomExpandableListAdapter extends BaseExpandableListAdapter{
     private Context context;
     private List<String> expandableListTitle;//
     private HashMap<String, List<String>> expandableListDetail;//
